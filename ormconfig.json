@@ -6,6 +6,7 @@
   "autoLoadEntities": true,
   "username": "postgres",
   "password": "admin",
+  "database": "VoterDb_Dev",
    "synchronize": true,
    "logging": false,
    "entities": [
