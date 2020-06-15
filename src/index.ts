@@ -16,6 +16,7 @@ createConnection()
     app.use(cors());
     app.use(helmet());
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     //Set all routes from routes folder
     app.use('/api', routes);

@@ -6,7 +6,7 @@ const router = Router();
 const authController = new AuthController();
 
 //Change my password
-router.post('/change-password', [checkJwt], AuthController.changePassword);
+router.post('/change-password', [checkJwt], authController.changePassword);
 
 router.post('/register', authController.register);
 router.post('/login', authController.login);

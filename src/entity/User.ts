@@ -9,10 +9,11 @@ import {
 
 import * as bcrypt from 'bcryptjs';
 import { Length, IsNotEmpty } from 'class-validator';
+import { BaseEntity } from './BaseEntity';
 
-@Entity()
+@Entity('UserTb')
 @Unique(['username'])
-export class User {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
