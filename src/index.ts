@@ -5,10 +5,12 @@ import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
 import * as cors from 'cors';
 import routes from './routes';
+import * as swaggerUI from 'swagger-ui-express';
+import { swaggerDocument } from '../swagger';
 
 //Connects to the Database -> then starts the express
 createConnection()
-  .then(async (connection) => {
+  .then(async (_connection) => {
     // Create a new express application instance
     const app = express();
 
@@ -17,6 +19,9 @@ createConnection()
     app.use(helmet());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+
+    //Set documentation
+    app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
     //Set all routes from routes folder
     app.use('/api', routes);
